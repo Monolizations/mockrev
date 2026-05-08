@@ -7,6 +7,7 @@ require __DIR__ . '/bootstrap.php';
 $method = $_SERVER['REQUEST_METHOD'];
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?: '/';
 $path = preg_replace('#^/api#', '', $path);
+$path = preg_replace('#^/index\.php#', '', $path);
 $path = $path === '' ? '/' : rtrim($path, '/');
 
 function public_user(array $user): array
